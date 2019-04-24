@@ -1,0 +1,16 @@
+doctype html
+html
+    head
+        title LOGIN FORM
+        link(rel="stylesheet" href="/stylesheets/login.css")
+    body
+        .container
+        
+            h1(style="text-align:center")#registerForm LOGIN Form
+            .login
+                form(action="/api/signin" method="POST")
+                input(type="text" name="username" placeholder="username")
+                input(type="password" name="password" placeholder="password")
+                
+                input( type="submit")
+            

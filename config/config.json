@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "arinanda",
+    "password": "Adibarinanda1.",
+    "database": "sik",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "arinanda",
+    "password": "Adibarinanda1.",
+    "database": "sik",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "arinanda",
+    "password": "Adibarinanda1.",
+    "database": "sik",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}
