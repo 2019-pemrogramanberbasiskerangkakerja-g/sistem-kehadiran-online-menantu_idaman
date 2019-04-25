@@ -54,4 +54,4 @@ NOTES : Make sure all the prerequisites are already installed and running.
 3. Run `sequelize db:migrate` to migrate the migrations to the database.
 4. Run `npm install` to download all the dependencies.
 5. Run `npm start` to start the application.
-6. Open your browser and go to `localhost:3000
+6. Open your browser and go to `localhost:3000`
