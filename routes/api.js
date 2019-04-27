@@ -60,6 +60,9 @@ router.get('/product', passport.authenticate('jwt', { session: false}), function
       .then((products) => res.status(200).send(products))
       .catch((error) => { res.status(400).send(error); });
   } else {
+    console.log('====================================');
+    console.log(req.headers);
+    console.log('====================================');
     return res.status(403).send({success: false, msg: 'Unauthorized.'});
   }
 });
