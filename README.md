@@ -1,7 +1,7 @@
 # Sistem Kehadiran Online
 - Ivan Fadhila (05111540000039)
 - Muhammad Adib Arinanda (05111540000111)
-- R. Sidqi Tri Priwi (05111540000127)
+- R. Sidqi Tri Priwi (05111540000153)
 
 ## Prerequisites
 
