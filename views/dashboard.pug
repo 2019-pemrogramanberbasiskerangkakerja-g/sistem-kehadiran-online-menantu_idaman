@@ -1,158 +1,151 @@
 doctype html
 html(lang='en')
-    head
-        title Sistem Kehadiran Online
-        meta(charset='utf-8')
-        meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
-        link(href='https://fonts.googleapis.com/css?family=Montserrat:300,400,700', rel='stylesheet')
-        link(rel='stylesheet', href='fonts/icomoon/style.css')
-        link(rel='stylesheet', href='css/bootstrap.min.css')
-        link(rel='stylesheet', href='css/jquery-ui.css')
-        link(rel='stylesheet', href='css/owl.carousel.min.css')
-        link(rel='stylesheet', href='css/owl.theme.default.min.css')
-        link(rel='stylesheet', href='css/owl.theme.default.min.css')
-        link(rel='stylesheet', href='css/jquery.fancybox.min.css')
-        link(rel='stylesheet', href='css/bootstrap-datepicker.css')
-        link(rel='stylesheet', href='fonts/flaticon/font/flaticon.css')
-        link(rel='stylesheet', href='css/aos.css')
-        link(rel='stylesheet', href='css/style.css')
-        link(rel='stylesheet', type='text/css', href='css/util.css')
-        link(rel='stylesheet', type='text/css', href='css/main.css')
-    body(data-spy='scroll', data-target='.site-navbar-target', data-offset='300')
-        #home-section.site-wrap
-            .site-mobile-menu.site-navbar-target
-                .site-mobile-menu-header
-                    .site-mobile-menu-close.mt-3
-                        span.icon-close2.js-menu-toggle
-                .site-mobile-menu-body
-            .container.d-none.d-lg-block
-                .row
-                    .col-12.text-center.mb-4.mt-5
-                        h1.mb-0.site-logo
-                            a.text-black.h2.mb-0(href='index.html')
-                                | Sistem Kehadiran Online
-                                span.text-primary .
-                        br
-                        h5 Welcome,  #{user}
-            #features-section.site-section.bg-light
-                .container
-                    .row.mb-5
-                        .col-12.text-center
-                            h2.section-title.mb-3 Tabel Kehadiran
-                    .table100.ver1.m-b-110
-                        .table100-head
-                            table
-                                thead
-                                    tr.row100.head
-                                        th.cell100.column1 Nama Kelas
-                                        th.cell100.column2 Tipe
-                                        th.cell100.column3 Jam
-                                        th.cell100.column4 Dosen
-                                        th.cell100.column5 Keterangan
-                        .table100-body.js-pscroll
-                            table
-                                tbody
-                                    tr.row100.body
-                                        td.cell100.column1 Like a butterfly
-                                        td.cell100.column2 Boxing
-                                        td.cell100.column3 9:00 AM - 11:00 AM
-                                        td.cell100.column4 Aaron Chapman
-                                        td.cell100.column5 10
-                                    tr.row100.body
-                                        td.cell100.column1 Mind & Body
-                                        td.cell100.column2 Yoga
-                                        td.cell100.column3 8:00 AM - 9:00 AM
-                                        td.cell100.column4 Adam Stewart
-                                        td.cell100.column5 15
-                                    tr.row100.body
-                                        td.cell100.column1 Crit Cardio
-                                        td.cell100.column2 Gym
-                                        td.cell100.column3 9:00 AM - 10:00 AM
-                                        td.cell100.column4 Aaron Chapman
-                                        td.cell100.column5 10
-                                    tr.row100.body
-                                        td.cell100.column1 Wheel Pose Full Posture
-                                        td.cell100.column2 Yoga
-                                        td.cell100.column3 7:00 AM - 8:30 AM
-                                        td.cell100.column4 Donna Wilson
-                                        td.cell100.column5 15
-                                    tr.row100.body
-                                        td.cell100.column1 Playful Dancer's Flow
-                                        td.cell100.column2 Yoga
-                                        td.cell100.column3 8:00 AM - 9:00 AM
-                                        td.cell100.column4 Donna Wilson
-                                        td.cell100.column5 10
-                                    tr.row100.body
-                                        td.cell100.column1 Zumba Dance
-                                        td.cell100.column2 Dance
-                                        td.cell100.column3 5:00 PM - 7:00 PM
-                                        td.cell100.column4 Donna Wilson
-                                        td.cell100.column5 20
-                                    tr.row100.body
-                                        td.cell100.column1 Cardio Blast
-                                        td.cell100.column2 Gym
-                                        td.cell100.column3 5:00 PM - 7:00 PM
-                                        td.cell100.column4 Randy Porter
-                                        td.cell100.column5 10
-                                    tr.row100.body
-                                        td.cell100.column1 Pilates Reformer
-                                        td.cell100.column2 Gym
-                                        td.cell100.column3 8:00 AM - 9:00 AM
-                                        td.cell100.column4 Randy Porter
-                                        td.cell100.column5 10
-                                    tr.row100.body
-                                        td.cell100.column1 Supple Spine and Shoulders
-                                        td.cell100.column2 Yoga
-                                        td.cell100.column3 6:30 AM - 8:00 AM
-                                        td.cell100.column4 Randy Porter
-                                        td.cell100.column5 15
-                                    tr.row100.body
-                                        td.cell100.column1 Yoga for Divas
-                                        td.cell100.column2 Yoga
-                                        td.cell100.column3 9:00 AM - 11:00 AM
-                                        td.cell100.column4 Donna Wilson
-                                        td.cell100.column5 20
-                                    tr.row100.body
-                                        td.cell100.column1 Virtual Cycle
-                                        td.cell100.column2 Gym
-                                        td.cell100.column3 8:00 AM - 9:00 AM
-                                        td.cell100.column4 Randy Porter
-                                        td.cell100.column5 20
-            .footer.py-5.border-top.text-center
-                .container
-                    .row.mb-5
-                        .col-12
-                            p.mb-0
-                                a.p-3(href='#')
-                                    span.icon-facebook
-                                a.p-3(href='#')
-                                    span.icon-twitter
-                                a.p-3(href='#')
-                                    span.icon-instagram
-                    .row
-                        .col-md-12
-                            p.mb-0
-                                // Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.
-                                | Copyright ©
-                                script.
-                                    document.write(new Date().getFullYear());
-                                |  All rights reserved | This template is made with 
-                                i.icon-heart(aria-hidden='true')
-                                |  by 
-                                a(href='https://colorlib.com', target='_blank') Colorlib
-                                // Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.
-                                // .site-wrap
-                                script(src='js/jquery-3.3.1.min.js')
-                                script(src='js/jquery-migrate-3.0.1.min.js')
-                                script(src='js/jquery-ui.js')
-                                script(src='js/popper.min.js')
-                                script(src='js/bootstrap.min.js')
-                                script(src='js/owl.carousel.min.js')
-                                script(src='js/jquery.stellar.min.js')
-                                script(src='js/jquery.countdown.min.js')
-                                script(src='js/bootstrap-datepicker.min.js')
-                                script(src='js/jquery.easing.1.3.js')
-                                script(src='js/aos.js')
-                                script(src='js/jquery.fancybox.min.js')
-                                script(src='js/jquery.sticky.js')
-                                script(src='js/main.js')
+  head
+    title Sistem Keharidan Online
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    link(href='https://fonts.googleapis.com/css?family=Montserrat:300,400,700', rel='stylesheet')
+    link(rel='stylesheet', href='fonts/icomoon/style.css')
+    link(rel='stylesheet', href='css/bootstrap.min.css')
+    link(rel='stylesheet', href='css/jquery-ui.css')
+    link(rel='stylesheet', href='css/owl.carousel.min.css')
+    link(rel='stylesheet', href='css/owl.theme.default.min.css')
+    link(rel='stylesheet', href='css/owl.theme.default.min.css')
+    link(rel='stylesheet', href='css/jquery.fancybox.min.css')
+    link(rel='stylesheet', href='css/bootstrap-datepicker.css')
+    link(rel='stylesheet', href='fonts/flaticon/font/flaticon.css')
+    link(rel='stylesheet', href='css/aos.css')
+    link(rel='stylesheet', href='css/style.css')
+  body(data-spy='scroll', data-target='.site-navbar-target', data-offset='300')
+    #home-section.site-wrap
+      .site-mobile-menu.site-navbar-target
+        .site-mobile-menu-header
+          .site-mobile-menu-close.mt-3
+            span.icon-close2.js-menu-toggle
+        .site-mobile-menu-body
+      .container.d-none.d-lg-block
+        .row
+          .col-12.text-center.mb-4.mt-5
+            h1.mb-0.site-logo
+              a.text-black.h2.mb-0(href='index.html')
+                | Sistem Kehadiran Online
+                span.text-primary .
+      header.site-navbar.py-md-4.js-sticky-header.site-navbar-target(role='banner')
+        .container
+          .row.align-items-center
+            .col-6.col-md-6.col-xl-2.d-block.d-lg-none
+              h1.mb-0.site-logo
+                a.text-black.h2.mb-0(href='index.html')
+                  | Sistem Keharidan Online
+                  span.text-primary .
+      #features-section.site-section.bg-light
+        .container
+          .row.mb-5
+            .col-12.text-center
+              h2.section-title.mb-3 Tabel Kehadiran
+              a(href='/logout') Logout
+          .row.align-items-stretch
+            .col-md-6.col-lg-4.mb-4.mb-lg-4(data-aos='fade-up')
+              .unit-4.d-block
+                .unit-4-icon.mb-3
+                  span.icon-wrap
+                    span.text-primary.icon-autorenew
+                div
+                  h3 Business Consulting
+                  p
+                    | Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quis molestiae vitae eligendi at.
+                  p
+                    a(href='#') Learn More
+            .col-md-6.col-lg-4.mb-4.mb-lg-4(data-aos='fade-up')
+              .unit-4.d-block
+                .unit-4-icon.mb-3
+                  span.icon-wrap
+                    span.text-primary.icon-store_mall_directory
+                div
+                  h3 Market Analysis
+                  p
+                    | Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quis molestiae vitae eligendi at.
+                  p
+                    a(href='#') Learn More
+            .col-md-6.col-lg-4.mb-4.mb-lg-4(data-aos='fade-up')
+              .unit-4.d-block
+                .unit-4-icon.mb-3
+                  span.icon-wrap
+                    span.text-primary.icon-shopping_basket
+                div
+                  h3 User Monitoring
+                  p
+                    | Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quis molestiae vitae eligendi at.
+                  p
+                    a(href='#') Learn More
+            .col-md-6.col-lg-4.mb-4.mb-lg-4(data-aos='fade-up')
+              .unit-4.d-block
+                .unit-4-icon.mb-3
+                  span.icon-wrap
+                    span.text-primary.icon-settings_backup_restore
+                div
+                  h3 Insurance Consulting
+                  p
+                    | Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quis molestiae vitae eligendi at.
+                  p
+                    a(href='#') Learn More
+            .col-md-6.col-lg-4.mb-4.mb-lg-4(data-aos='fade-up')
+              .unit-4.d-block
+                .unit-4-icon.mb-3
+                  span.icon-wrap
+                    span.text-primary.icon-sentiment_satisfied
+                div
+                  h3 Customer Satistified
+                  p
+                    | Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quis molestiae vitae eligendi at.
+                  p
+                    a(href='#') Learn More
+            .col-md-6.col-lg-4.mb-4.mb-lg-4(data-aos='fade-up')
+              .unit-4.d-block
+                .unit-4-icon.mb-3
+                  span.icon-wrap
+                    span.text-primary.icon-power
+                div
+                  h3 Plug & Play
+                  p
+                    | Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quis molestiae vitae eligendi at.
+                  p
+                    a(href='#') Learn More
+      .footer.py-5.border-top.text-center
+        .container
+          .row.mb-5
+            .col-12
+              p.mb-0
+                a.p-3(href='#')
+                  span.icon-facebook
+                a.p-3(href='#')
+                  span.icon-twitter
+                a.p-3(href='#')
+                  span.icon-instagram
+          .row
+            .col-md-12
+              p.mb-0
+                // Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.
+                | Copyright ©
+                script.
+                  document.write(new Date().getFullYear());
+                |  All rights reserved | This template is made with 
+                i.icon-heart(aria-hidden='true')
+                |  by 
+                a(href='https://colorlib.com', target='_blank') Colorlib
+                // Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.
+                // .site-wrap
+                script(src='js/jquery-3.3.1.min.js')
+                script(src='js/jquery-migrate-3.0.1.min.js')
+                script(src='js/jquery-ui.js')
+                script(src='js/popper.min.js')
+                script(src='js/bootstrap.min.js')
+                script(src='js/owl.carousel.min.js')
+                script(src='js/jquery.stellar.min.js')
+                script(src='js/jquery.countdown.min.js')
+                script(src='js/bootstrap-datepicker.min.js')
+                script(src='js/jquery.easing.1.3.js')
+                script(src='js/aos.js')
+                script(src='js/jquery.fancybox.min.js')
+                script(src='js/jquery.sticky.js')
+                script(src='js/main.js')
