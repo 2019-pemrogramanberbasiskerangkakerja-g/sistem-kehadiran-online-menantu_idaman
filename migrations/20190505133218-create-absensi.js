@@ -1,0 +1,36 @@
+'use strict';
+module.exports = {
+  up: (queryInterface, Sequelize) => {
+    return queryInterface.createTable('Absensis', {
+      id: {
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
+        type: Sequelize.INTEGER
+      },
+      waktu_mulai: {
+        type: Sequelize.DATE
+      },
+      waktu_selesai: {
+        type: Sequelize.DATE
+      },
+      peserta_masuk: {
+        type: Sequelize.ARRAY(Sequelize.JSON)
+      },
+      pertemuan: {
+        type: Sequelize.INTEGER
+      },
+      createdAt: {
+        allowNull: false,
+        type: Sequelize.DATE
+      },
+      updatedAt: {
+        allowNull: false,
+        type: Sequelize.DATE
+      }
+    });
+  },
+  down: (queryInterface, Sequelize) => {
+    return queryInterface.dropTable('Absensis');
+  }
+};
