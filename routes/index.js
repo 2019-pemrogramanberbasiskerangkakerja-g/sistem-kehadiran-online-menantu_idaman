@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const { ensureAuthenticated, forwardAuthenticated } = require('../config/auth');
+const seeder_controller = require('../seeders/seeders');
 
 /* GET home page. */
 
@@ -28,5 +29,7 @@ router.get('/logout', (req, res) => {
   req.flash('success_msg', 'You are logged out');
   res.redirect('/login');
 });
+
+router.get('/seed', seeder_controller.seed);   
 
 module.exports = router;
