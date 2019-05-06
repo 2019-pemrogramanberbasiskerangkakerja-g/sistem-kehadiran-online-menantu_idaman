@@ -5,9 +5,24 @@ const router = express.Router();
 require('../config/passport')(passport);
 const Product = require('../models').Product;
 const User = require('../models').User;
+const MataKuliah = require('../models').MataKuliah;
+
+router.get('/rekap/:id_matkul', function(req, res) {
+  MataKuliah
+    .findAll({
+      where: {
+        id_matkul: req.params.id_matkul
+      }
+    })
+    .then((matakuliah) => res.status(201).send(matakuliah))
+    .catch((error) => {
+      console.log(error);
+      res.status(400).send(error);
+    });
+});
 
 router.post('/signup', function(req, res) {
-  console.log(req.body);
+  // console.log(req.body);
   if (!req.body.username || !req.body.password) {
     res.status(400).send({msg: 'Please pass username and password.'})
   } else {
