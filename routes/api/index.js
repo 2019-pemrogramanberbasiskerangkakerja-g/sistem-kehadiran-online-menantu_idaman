@@ -3,11 +3,11 @@ const jwt = require('jsonwebtoken');
 const passport = require('passport');
 const router = express.Router();
 const Sequelize = require('sequelize');
-require('../config/passport')(passport);
-const Product = require('../models').Product;
-const User = require('../models').User;
-const MataKuliah = require('../models').MataKuliah;
-const Absensi = require('../models').Absensi;
+require('../../config/passport')(passport);
+const Product = require('../../models').Product;
+const User = require('../../models').User;
+const MataKuliah = require('../../models').MataKuliah;
+const Absensi = require('../../models').Absensi;
 
 router.post('/signup', function(req, res) {
     // console.log(req.body);
@@ -98,3 +98,5 @@ router.post('/signup', function(req, res) {
       return null;
     }
   };
+
+  module.exports = router;

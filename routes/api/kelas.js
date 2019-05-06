@@ -3,10 +3,10 @@ const jwt = require('jsonwebtoken');
 const passport = require('passport');
 const router = express.Router();
 const Sequelize = require('sequelize');
-require('../config/passport')(passport);
-const MataKuliah = require('../models').MataKuliah;
+require('../../config/passport')(passport);
+const MataKuliah = require('../../models').MataKuliah;
 
-router.get('/kelas/:nrp', function(req, res) {
+router.get('/:nrp', function(req, res) {
     MataKuliah
       .findAll({
         where: {
@@ -21,3 +21,5 @@ router.get('/kelas/:nrp', function(req, res) {
         res.status(400).send(error);
       });
   });
+
+  module.exports = router;

@@ -3,13 +3,13 @@ const jwt = require('jsonwebtoken');
 const passport = require('passport');
 const router = express.Router();
 const Sequelize = require('sequelize');
-require('../config/passport')(passport);
-const Product = require('../models').Product;
-const User = require('../models').User;
-const MataKuliah = require('../models').MataKuliah;
-const Absensi = require('../models').Absensi;
+require('../../config/passport')(passport);
+const Product = require('../../models').Product;
+const User = require('../../models').User;
+const MataKuliah = require('../../models').MataKuliah;
+const Absensi = require('../../models').Absensi;
 
-router.get('/rekap/:id_matkul', function(req, res) {
+router.get('/:id_matkul', function(req, res) {
     Absensi
       .findAll({
         where: {
@@ -23,7 +23,7 @@ router.get('/rekap/:id_matkul', function(req, res) {
       });
   });
   
-  router.get('/rekap/:id_matkul/:pertemuan', function(req, res) {
+  router.get('/:id_matkul/:pertemuan', function(req, res) {
     Absensi
       .findAll({
         where: {
@@ -37,3 +37,5 @@ router.get('/rekap/:id_matkul', function(req, res) {
         res.status(400).send(error);
       });
   });
+
+  module.exports = router;

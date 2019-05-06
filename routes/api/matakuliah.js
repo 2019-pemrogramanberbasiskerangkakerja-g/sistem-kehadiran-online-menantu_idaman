@@ -3,10 +3,10 @@ const jwt = require('jsonwebtoken');
 const passport = require('passport');
 const router = express.Router();
 const Sequelize = require('sequelize');
-require('../config/passport')(passport);
-const MataKuliah = require('../models').MataKuliah;
+require('../../config/passport')(passport);
+const MataKuliah = require('../../models').MataKuliah;
 
-router.get('/matakuliah/all', function(req, res) {
+router.get('/all', function(req, res) {
     MataKuliah
       .findAll()
       .then((data) => res.status(200).send(data))
@@ -16,7 +16,7 @@ router.get('/matakuliah/all', function(req, res) {
       });
   });
   
-  router.get('/matakuliah/:id_matkul', function(req, res) {
+  router.get('/:id_matkul', function(req, res) {
     MataKuliah
       .findAll({
         where: {
