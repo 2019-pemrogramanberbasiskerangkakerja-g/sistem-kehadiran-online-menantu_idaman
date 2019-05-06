@@ -22,6 +22,21 @@ router.get('/rekap/:id_matkul', function(req, res) {
     });
 });
 
+router.get('/rekap/:id_matkul/:pertemuan', function(req, res) {
+  Absensi
+    .findAll({
+      where: {
+        id_matkul: req.params.id_matkul,
+        pertemuan: req.params.pertemuan
+      }
+    })
+    .then((absensi) => res.status(201).send(absensi))
+    .catch((error) => {
+      console.log(error);
+      res.status(400).send(error);
+    });
+});
+
 router.post('/signup', function(req, res) {
   // console.log(req.body);
   if (!req.body.username || !req.body.password) {
