@@ -14,8 +14,11 @@ module.exports = {
       kelas: {
         type: Sequelize.STRING
       },
+      id_matkul: {
+        type: Sequelize.STRING
+      },
       peserta: {
-        type: Sequelize.ARRAY(Sequelize.JSON)
+        type: Sequelize.ARRAY(Sequelize.STRING)
       },
       createdAt: {
         allowNull: false,
