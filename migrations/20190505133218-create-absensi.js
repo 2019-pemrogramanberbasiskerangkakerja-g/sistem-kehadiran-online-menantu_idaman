@@ -17,6 +17,9 @@ module.exports = {
       peserta_masuk: {
         type: Sequelize.ARRAY(Sequelize.JSON)
       },
+      id_matkul: {
+        type: Sequelize.STRING
+      },
       pertemuan: {
         type: Sequelize.INTEGER
       },
