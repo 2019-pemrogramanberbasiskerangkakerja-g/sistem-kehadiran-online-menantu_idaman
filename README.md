@@ -55,3 +55,5 @@ NOTES : Make sure all the prerequisites are already installed and running.
 4. Run `npm install` to download all the dependencies.
 5. Run `npm start` to start the application.
 6. Open your browser and go to `localhost:3000`
+
+For the API Docs, you can check it [here](https://github.com/2019-pemrogramanberbasiskerangkakerja-g/sistem-kehadiran-online-menantu_idaman/tree/master/routes/api)
