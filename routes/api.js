@@ -6,15 +6,16 @@ require('../config/passport')(passport);
 const Product = require('../models').Product;
 const User = require('../models').User;
 const MataKuliah = require('../models').MataKuliah;
+const Absensi = require('../models').Absensi;
 
 router.get('/rekap/:id_matkul', function(req, res) {
-  MataKuliah
+  Absensi
     .findAll({
       where: {
         id_matkul: req.params.id_matkul
       }
     })
-    .then((matakuliah) => res.status(201).send(matakuliah))
+    .then((absensi) => res.status(201).send(absensi))
     .catch((error) => {
       console.log(error);
       res.status(400).send(error);
