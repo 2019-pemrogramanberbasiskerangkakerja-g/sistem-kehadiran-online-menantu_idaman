@@ -14,6 +14,9 @@ module.exports = {
       kelas: {
         type: Sequelize.STRING
       },
+      ruang: {
+        type: Sequelize.STRING
+      },
       id_matkul: {
         type: Sequelize.STRING
       },
