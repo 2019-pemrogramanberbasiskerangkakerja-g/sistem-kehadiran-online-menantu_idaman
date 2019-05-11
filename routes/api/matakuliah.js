@@ -49,6 +49,21 @@ router.get('/all', function(req, res) {
         console.log(error);
         res.status(400).send(error);
       });
-  })
+  });
+
+  router.post('/tambahmatkul', function(req, res) {
+    MataKuliah
+    .create({
+      nama: req.body.nama,
+      kelas: req.body.kelas,
+      id_matkul: req.body.id_matkul,
+      peserta: []
+    })
+    .then((data) => res.status(200).send(data))
+    .catch((error) => {
+      console.log(error);
+      res.status(400).send(error)
+    });
+  });
 
 module.exports = router;
