@@ -3,7 +3,6 @@ module.exports = (sequelize, DataTypes) => {
   const MataKuliah = sequelize.define('MataKuliah', {
     nama: DataTypes.STRING,
     kelas: DataTypes.STRING,
-    ruang: DataTypes.STRING,
     id_matkul: DataTypes.STRING,
     peserta: DataTypes.ARRAY(DataTypes.STRING)
   }, {});
