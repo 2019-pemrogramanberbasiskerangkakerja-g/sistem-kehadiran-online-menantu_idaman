@@ -282,3 +282,35 @@
 
   **Code:** 400 <br />
     **Content:** `<error>`
+
+----
+**Tambah Jadwal**
+----
+   
+
+* **URL**
+
+  /api/absen/tambahjadwal
+
+* **Method:**
+
+  `POST`
+
+*  **Body Params**
+
+   **Required:**
+ 
+   `id_matkul=[string]` <br/>
+   `pertemuan=[integer]` <br/>
+   `waktu_mulai=[date]` <br/>
+   `waktu_selesai=[date]`
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** `{ <added mata kuliah data> }`
+ 
+* **Error Response:**
+
+  **Code:** 400 <br />
+    **Content:** `<error>`
