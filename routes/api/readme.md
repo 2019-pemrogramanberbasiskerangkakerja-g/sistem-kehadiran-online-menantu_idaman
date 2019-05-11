@@ -124,8 +124,8 @@
 
    **Required:**
  
-   `id_matkul=[integer]` <br/>
-   `pertemuan=[integer]`
+   `id_matkul=[string]` <br/>
+   `pertemuan=[string]`
 
 * **Success Response:**
 
@@ -154,6 +154,36 @@
 
   * **Code:** 200 <br />
     **Content:** `{ <all user data> }`
+ 
+* **Error Response:**
+
+  **Code:** 400 <br />
+    **Content:** `<error>`
+
+----
+**Absen**
+----
+   
+
+* **URL**
+
+  /api/absen/:ruang/:nrp
+
+* **Method:**
+
+  `POST`
+
+*  **URL Params**
+
+   **Required:**
+ 
+   `ruang=[string]` <br/>
+   `nrp=[string]`
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** `{ <corresponding absensi and matakuliah data> }`
  
 * **Error Response:**
 
