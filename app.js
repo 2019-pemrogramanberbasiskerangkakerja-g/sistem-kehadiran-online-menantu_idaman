@@ -17,6 +17,7 @@ var apiKelasRouter = require('./routes/api/kelas');
 var apiMataKuliahRouter = require('./routes/api/matakuliah');
 var apiRekapRouter = require('./routes/api/rekap');
 var apiAbsenRouter = require('./routes/api/absen');
+var apiUserRouter = require('./routes/api/user');
 
 var app = express();
 
@@ -55,6 +56,7 @@ app.use('/api/kelas', apiKelasRouter);
 app.use('/api/matakuliah', apiMataKuliahRouter);
 app.use('/api/rekap', apiRekapRouter);
 app.use('/api/absen', apiAbsenRouter);
+app.use('/api/user', apiUserRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
