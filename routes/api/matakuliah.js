@@ -30,4 +30,25 @@ router.get('/all', function(req, res) {
       });
   });
 
+  router.post('/tambahpeserta/:id_matkul/:kelas/:nrp', function(req, res) {
+    MataKuliah
+      .findOne({
+        where: {
+          id_matkul: req.params.id_matkul,
+          kelas: req.params.kelas
+        }
+      })
+      .then(data => {
+        data.peserta.push(req.params.nrp);
+        data.update({
+            peserta: data.peserta
+        });
+        res.status(200).send(data);
+      })
+      .catch((error) => {
+        console.log(error);
+        res.status(400).send(error);
+      });
+  })
+
 module.exports = router;
