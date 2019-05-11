@@ -16,4 +16,18 @@ router.get('/all', function(req, res) {
       });
   });
 
+  router.post('/tambahmahasiswa', function(req, res) {
+    User
+      .create({
+        username: req.body.nrp,
+        password: req.body.password,
+        nama: req.body.nama
+      })
+      .then((data) => res.status(200).send(data))
+      .catch((error) => {
+        console.log(error);
+        res.status(400).send(error);
+      })
+  });
+
   module.exports = router;
