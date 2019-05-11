@@ -7,12 +7,14 @@ module.exports = {
         users
             .create({
                 username: '5115100111',
-                password: '$2y$10$/EzWN8TvkKs3uaWM/o89Ceod8MKfMXc4qi6aK4Ntk6/B8sCQOvyF2'
+                password: '$2y$10$/EzWN8TvkKs3uaWM/o89Ceod8MKfMXc4qi6aK4Ntk6/B8sCQOvyF2',
+                nama: 'Muhammad Adib Arinanda'
             }),
         users
             .create({
                 username: '5115100039',
-                password: '$2y$10$kcxwEkQ0Q8mDPlnRjr17w.pxWnsDRGx3NjqXu4oHhxHl1hnZnGKta'
+                password: '$2y$10$kcxwEkQ0Q8mDPlnRjr17w.pxWnsDRGx3NjqXu4oHhxHl1hnZnGKta',
+                nama: 'Ivan Fadhila'
             }),
 
         matakuliahs
