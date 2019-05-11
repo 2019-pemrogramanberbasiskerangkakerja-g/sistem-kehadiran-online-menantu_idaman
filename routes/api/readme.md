@@ -79,7 +79,7 @@
     **Content:** `<error>`
 
 ----
-**Get All :id_matkul Absensi's Data**
+**Rekap Kuliah per Semester**
 ----
    
 
@@ -108,7 +108,7 @@
     **Content:** `<error>`
 
 ----
-**Get All :id_matkul Absensi's Data, based on :pertemuan**
+**Rekap Kuliah per Semester berdasarkan Pertemuan**
 ----
    
 
@@ -215,6 +215,68 @@
 
   * **Code:** 200 <br />
     **Content:** `{ <matakuliah data> }`
+ 
+* **Error Response:**
+
+  **Code:** 400 <br />
+    **Content:** `<error>`
+
+----
+**Tambah Mahasiswa**
+----
+   
+
+* **URL**
+
+  /api/user/tambahmahasiswa
+
+* **Method:**
+
+  `POST`
+
+*  **Body Params**
+
+   **Required:**
+ 
+   `nrp=[integer]` <br/>
+   `password=[string]` <br/>
+   `nama=[string]`
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** `{ <added user data> }`
+ 
+* **Error Response:**
+
+  **Code:** 400 <br />
+    **Content:** `<error>`
+
+----
+**Tambah Mata Kuliah**
+----
+   
+
+* **URL**
+
+  /api/matakuliah/tambahmatkul
+
+* **Method:**
+
+  `POST`
+
+*  **Body Params**
+
+   **Required:**
+ 
+   `nama=[string]` <br/>
+   `kelas=[string]` <br/>
+   `id_matkul=[string]`
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** `{ <added mata kuliah data> }`
  
 * **Error Response:**
 
