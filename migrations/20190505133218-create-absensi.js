@@ -18,7 +18,12 @@ module.exports = {
         type: Sequelize.ARRAY(Sequelize.JSON)
       },
       id_matkul: {
-        type: Sequelize.STRING
+          type: Sequelize.INTEGER,
+          references: {
+              model: 'MataKuliahs',
+              key: 'id',
+              deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
+          }
       },
       pertemuan: {
         type: Sequelize.INTEGER

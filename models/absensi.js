@@ -4,11 +4,12 @@ module.exports = (sequelize, DataTypes) => {
     waktu_mulai: DataTypes.DATE,
     waktu_selesai: DataTypes.DATE,
     peserta_masuk: DataTypes.ARRAY(DataTypes.JSON),
-    id_matkul: DataTypes.STRING,
     pertemuan: DataTypes.INTEGER
   }, {});
   Absensi.associate = function(models) {
-    // associations can be defined here
+    Absensi.belongsTo(models.MataKuliah, {
+      foreignKey: 'id_matkul'
+    });
   };
   return Absensi;
 };

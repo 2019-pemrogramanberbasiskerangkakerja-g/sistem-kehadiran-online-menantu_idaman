@@ -8,7 +8,9 @@ module.exports = (sequelize, DataTypes) => {
     peserta: DataTypes.ARRAY(DataTypes.STRING)
   }, {});
   MataKuliah.associate = function(models) {
-    // associations can be defined here
+    MataKuliah.hasMany(models.Absensi, {
+      foreignKey: 'id_matkul'
+    });
   };
   return MataKuliah;
 };
