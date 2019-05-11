@@ -18,13 +18,9 @@ router.post('/:ruang/:nrp', function(req, res) {
         };
     Absensi
       .findOne({
-          include: [
-              {
-                  model: MataKuliah, where: {
-                      ruang: req.params.ruang
-                  }
-              }
-          ]
+        where: {
+            ruang: req.params.ruang
+        }
       })
       .then(data => {
         data.peserta_masuk.push(data_peserta_masuk);
