@@ -43,16 +43,16 @@ module.exports = {
             .create({
                 waktu_mulai: '2019-05-06T03:52:20.964Z',
                 waktu_selesai:'2019-05-06T04:52:20.964Z',
-                peserta_masuk: [{"username":"5115100110", "waktu_masuk":"2019-05-06T03:53:20.964Z"}, {"username":"5115100112", "waktu_masuk":"2019-05-06T03:55:20.964Z"}],
-                id_matkul: 'IF4605',
+                peserta_masuk: [],
+                id_matkul: 1,
                 pertemuan: 1
             }),
             absensis
             .create({
                 waktu_mulai: '2019-05-06T03:52:20.964Z',
                 waktu_selesai:'2019-05-06T04:52:20.964Z',
-                peserta_masuk: [{"username":"5115100110", "waktu_masuk":"2019-05-06T03:53:20.964Z"}, {"username":"5115100112", "waktu_masuk":"2019-05-06T03:55:20.964Z"}],
-                id_matkul: 'IF4605',
+                peserta_masuk: [],
+                id_matkul: 2,
                 pertemuan: 2
             })
     }
