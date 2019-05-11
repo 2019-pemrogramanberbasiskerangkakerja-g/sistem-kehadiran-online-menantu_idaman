@@ -189,3 +189,34 @@
 
   **Code:** 400 <br />
     **Content:** `<error>`
+
+----
+**Tambah Peserta**
+----
+   
+
+* **URL**
+
+  /api/matakuliah/tambahpeserta/:id_matkul/:kelas/:nrp
+
+* **Method:**
+
+  `POST`
+
+*  **URL Params**
+
+   **Required:**
+ 
+   `id_matkul=[string]` <br/>
+   `kelas=[string]` <br/>
+   `nrp=[string]`
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:** `{ <matakuliah data> }`
+ 
+* **Error Response:**
+
+  **Code:** 400 <br />
+    **Content:** `<error>`
