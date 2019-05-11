@@ -28,6 +28,9 @@ module.exports = {
       pertemuan: {
         type: Sequelize.INTEGER
       },
+      ruang: {
+        type: Sequelize.STRING
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
