@@ -302,13 +302,15 @@
  
    `id_matkul=[string]` <br/>
    `pertemuan=[integer]` <br/>
+   `ruang=[string]` <br/>
+   `kelas=[string]` <br/>
    `waktu_mulai=[date]` <br/>
    `waktu_selesai=[date]`
 
 * **Success Response:**
 
   * **Code:** 200 <br />
-    **Content:** `{ <added mata kuliah data> }`
+    **Content:** `{ <added absen data> }`
  
 * **Error Response:**
 
