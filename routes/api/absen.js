@@ -36,18 +36,33 @@ router.post('/:ruang/:nrp', function(req, res) {
   });
 
   router.post('/tambahjadwal', function(req, res) {
-    Absensi
-        .create({
-            id_matkul: req.body.id_matkul, //ini di model absensi, id_matkul itu foreignkey id dari model matakuliah. cari cara supaya bisa dapet idnya!
+    MataKuliah
+      .findOne({
+        where: {
+          id_matkul: req.body.id_matkul,
+          kelas: req.body.kelas
+        }
+      })
+      .then((data) => {
+        Absensi
+          .create({
+            id_matkul: data.id,
             pertemuan: req.body.pertemuan,
-            waktu_mulai: req.body.waktu_mulai,
-            waktu_selesai: req.body.waktu_selesai
-        })
-        .then((data) => res.status(200).send(data))
-        .catch((error) => {
+            peserta_masuk: [],
+            ruang: req.body.ruang,
+            waktu_mulai: new Date(), //fixin inputannya dulu
+            waktu_selesai: new Date() //fixin inputannya dulu
+          })
+          .then((data) => res.status(200).send(data))
+          .catch((error) => {
             console.log(error);
-            res.status(400).send(error)
-        });
+            res.status(400).send(error);
+          });
+      })
+      .catch((error) => {
+        console.log(error);
+        res.status(400).send(error)
+      });
   });
 
   module.exports = router;
