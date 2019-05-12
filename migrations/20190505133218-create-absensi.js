@@ -15,7 +15,7 @@ module.exports = {
         type: Sequelize.DATE
       },
       peserta_masuk: {
-        type: Sequelize.ARRAY(Sequelize.JSON)
+        type: Sequelize.ARRAY(Sequelize.JSONB)
       },
       id_matkul: {
           type: Sequelize.INTEGER,
