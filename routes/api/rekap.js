@@ -9,7 +9,7 @@ const User = require('../../models').User;
 const MataKuliah = require('../../models').MataKuliah;
 const Absensi = require('../../models').Absensi;
 
-router.get('/kuliah/:id_matkul', function(req, res) {
+router.get('/:id_matkul', function(req, res) {
     Absensi
       .findAll({
         where: {
@@ -23,7 +23,7 @@ router.get('/kuliah/:id_matkul', function(req, res) {
       });
   });
   
-  router.get('/kuliah/:id_matkul/:pertemuan', function(req, res) {
+  router.get('/:id_matkul/:pertemuan', function(req, res) {
     Absensi
       .findAll({
         where: {
@@ -38,20 +38,20 @@ router.get('/kuliah/:id_matkul', function(req, res) {
       });
   });
 
-  router.get('/rekapmahasiswa/:nrp', function(req, res) {
-    Absensi
-      .findAll({
-        where: {
-          "peserta_masuk.nrp": req.params.nrp
-        }
-      })
-      .then((result) => {
-        console.log('hasilnya' + result);
-      })
-      .catch((error) => {
-        console.log(error);
-        res.status(400).send(error);
-      });
-  });
+  // router.get('/rekapmahasiswa/:nrp', function(req, res) {
+  //   Absensi
+  //     .findAll({
+  //       where: {
+  //         "peserta_masuk.nrp": req.params.nrp
+  //       }
+  //     })
+  //     .then((result) => {
+  //       console.log('hasilnya' + result);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //       res.status(400).send(error);
+  //     });
+  // });
 
   module.exports = router;
