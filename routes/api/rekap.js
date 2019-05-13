@@ -10,7 +10,7 @@ const MataKuliah = require('../../models').MataKuliah;
 const Absensi = require('../../models').Absensi;
 
 router.get('/:id_matkul', function(req, res) {
-    Absensi
+    MataKuliah
       .findAll({
         where: {
           id_matkul: req.params.id_matkul
@@ -24,11 +24,18 @@ router.get('/:id_matkul', function(req, res) {
   });
   
   router.get('/:id_matkul/:pertemuan', function(req, res) {
-    Absensi
+    MataKuliah
       .findAll({
+        include: [
+          {
+            model: Absensi, where:
+            {
+              pertemuan: req.params.pertemuan
+            }
+          }
+        ],
         where: {
-          id_matkul: req.params.id_matkul,
-          pertemuan: req.params.pertemuan
+          id_matkul: req.params.id_matkul
         }
       })
       .then((absensi) => res.status(201).send(absensi))
