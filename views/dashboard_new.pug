@@ -1,0 +1,104 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    title Sistem Kehadiran Online ITS
+    // Bootstrap CSS CDN
+    link(rel='icon', href='images/favicon-1.png', type='image/gif')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u', crossorigin='anonymous')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css', integrity='sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp', crossorigin='anonymous')
+    // DataTables CSS CDN
+    link(rel='stylesheet', href='https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css')
+    // Font Awesome CSS CDN
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css')
+    link(href='css/navbar-fixed-top.css', rel='stylesheet')
+  body
+    nav.navbar.navbar-default.navbar-fixed-top
+      .container
+        .navbar-header
+          button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          // <img style="width:5%; length:10%" src="assets/images/its.png" alt="">
+          a.navbar-brand(href='dashboard')
+            // ?php echo $web-
+            | Sistem Kehadiran Online
+        #navbar.navbar-collapse.collapse
+          ul.nav.navbar-nav.navbar-right
+ 
+            li.if(class="<?php ($this->uri->segment('1') == 'dashboard') {echo 'active';} ?>")
+              a(href="<?php echo base_url('dashboard'); ?>") Dashboard
+            li.if(class="<?php ($this->uri->segment('1') == 'pengajuan') {echo 'active';} ?>")
+              a(href="<?php echo base_url('pengajuan'); ?>") Rekap
+            li
+              a(href="<?php echo base_url('logout'); ?>") Logout
+        // /.nav-collapse
+    .container
+      .row
+        .btn-group.float-right(style='float:right')
+          ol.breadcrumb.hide-phone.p-0.m-0
+            li.breadcrumb-item
+              | Selamat Datang,
+            li.breadcrumb-item.active
+              | Nama User
+      br
+      | isi konten
+      br
+      hr
+      .footer
+        p
+          strong Sistem Kehadiran ITS
+          |  ©
+          
+          | 2019
+    // view Modal
+    #proposalModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='basicModal', aria-hidden='true', style='margin-top: -20px;')
+      .modal-dialog.modal-lg
+        .modal-content
+          .modal-header
+            button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+            h4#myModalLabel.modal-title Detail Tugas Akhir
+          .modal-body
+            // Place to print the fetched phone
+            #proposal_result
+          .modal-footer
+            button.btn.btn-default(type='button', data-dismiss='modal') Close
+    // jQuery JS CDN
+    script(src='https://code.jquery.com/jquery-3.3.1.min.js', integrity='sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=', crossorigin='anonymous')
+    // jQuery DataTables JS CDN
+    script(src='https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js')
+    // Bootstrap JS CDN
+    script(src='https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js')
+    // Bootstrap JS CDN
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', integrity='sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa', crossorigin='anonymous')
+    script(type='text/javascript').
+      // Start jQuery function after page is loaded
+      $(document).ready(function(){
+      // Initiate DataTable function comes with plugin
+      $('#dataTable').DataTable();
+      // Start jQuery click function to view Bootstrap modal when view info button is clicked
+      $('#dataTable').on('click', '.view_data', function(){
+      // Get the id of selected phone and assign it in a variable called phoneData
+      var proposalData = $(this).attr('id');
+      // Start AJAX function
+      $.ajax({
+      // Path for controller function which fetches selected phone data
+      url: "<?php echo base_url() ?>Proposal/get_proposal_result",
+      // Method of getting data
+      method: "POST",
+      // Data is sent to the server
+      data: {proposalData:proposalData},
+      // Callback function that is executed after data is successfully sent and recieved
+      success: function(data){
+      // Print the fetched data of the selected phone in the section called #phone_result
+      // within the Bootstrap modal
+      $('#proposal_result').html(data);
+      // Display the Bootstrap modal
+      $('#proposalModal').modal('show');
+      }
+      });
+      // End AJAX function
+      });
+      });

@@ -23,6 +23,15 @@ router.get('/dashboard', forwardAuthenticated, (req, res) =>
   })
 
 );
+
+router.get('/dashboard_new', forwardAuthenticated, (req, res) =>
+  res.render('dashboard_new', {
+    // userData: req.user
+    title: 'Dashboard'
+    
+  })
+
+);
 // console.log(req.user);
 
 router.get('/logout', (req, res) => {
