@@ -15,10 +15,10 @@ router.get('/login', forwardAuthenticated, function(req, res, next) {
   res.render('login_new', { title: 'Login' });
 });
 
-router.get('/dashboard', ensureAuthenticated, (req, res) =>
+router.get('/dashboard', forwardAuthenticated, (req, res) =>
   res.render('dashboard', {
-    userData: req.user
-    // title: 'Dashboard'
+    // userData: req.user
+    title: 'Dashboard'
     
   })
 
