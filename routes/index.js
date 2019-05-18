@@ -9,15 +9,16 @@ const seeder_controller = require('../seeders/seeders');
 //   res.render('index', { title: 'Express' });
 // });
 
-router.get('/', forwardAuthenticated, (req, res) => res.render('login'));
+router.get('/', forwardAuthenticated, (req, res) => res.render('login_new'));
 
 router.get('/login', forwardAuthenticated, function(req, res, next) {
-  res.render('login', { title: 'Login' });
+  res.render('login_new', { title: 'Login' });
 });
 
-router.get('/dashboard', ensureAuthenticated, (req, res) =>
+router.get('/dashboard', forwardAuthenticated, (req, res) =>
   res.render('dashboard', {
-    userData: req.user
+    // userData: req.user
+    title: 'Dashboard'
     
   })
 
@@ -27,7 +28,7 @@ router.get('/dashboard', ensureAuthenticated, (req, res) =>
 router.get('/logout', (req, res) => {
   req.logout();
   req.flash('success_msg', 'You are logged out');
-  res.redirect('/login');
+  res.redirect('/login_new');
 });
 
 router.get('/seed', seeder_controller.seed);   
