@@ -72,7 +72,8 @@ html(lang='en')
                                         th.cell100.column1 Nama Mata Kuliah
                                         th.cell100.column2 Kelas
                                         th.cell100.column3 ID Mata Kuliah
-                                        th.cell100.column4 Keterangan
+                                        th.cell100.column4 Ruang
+                                        th.cell100.column5 Keterangan
                         .table100-body.js-pscroll
                             table
                                 tbody
@@ -81,10 +82,12 @@ html(lang='en')
                                             td.cell100.column1 #{item.nama}
                                             td.cell100.column2 #{item.kelas}
                                             td.cell100.column3 #{item.id_matkul}
-                                            td.cell100.column4
+                                            td.cell100.column3 #{ruang}
+                                            td.cell100.column5 
                                                 a(href="absen" class="btn btn-default") Absen
+                                            
                                          
-                                         
+
 
             hr
             .footer

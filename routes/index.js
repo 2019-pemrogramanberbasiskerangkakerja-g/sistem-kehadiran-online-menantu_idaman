@@ -34,8 +34,22 @@ router.get('/dashboard_new', forwardAuthenticated, (req, res) =>
   function(error, response, body){
   // console.log(JSON.parse(body));
   const arrayAllClass = JSON.parse(body);
+  // const arrayAbsensi = arrayAllClass[i].Absensis;
+  var lastElementofArrayAbsensi = arrayAbsensi[arrayAbsensi.length - 1];
 
-  res.render('dashboard_new', {arrayClass:arrayAllClass})
+  arrayAllClass.forEach(function(element, i){
+    // var currentIndex = 0;
+
+    
+    console.log('debug array absensi length ' + arrayAbsensi.length);
+    var arrayRuang = [];
+    var ruang = lastElementofArrayAbsensi.ruang;
+    arrayRuang.push(ruang);
+
+  })
+  console.log(arrayRuang);
+ 
+  res.render('dashboard_new', {arrayClass:arrayAllClass, ruang:ruang})
   })
 
 );
