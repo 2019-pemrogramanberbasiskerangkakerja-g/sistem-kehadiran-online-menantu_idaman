@@ -1,0 +1,94 @@
+doctype html
+html(lang='en')
+    head
+        meta(charset='utf-8')
+        title Sistem Kehadiran Online ITS
+        // Bootstrap CSS CDN
+        link(rel='icon', href='images/favicon-1.png', type='image/gif')
+        link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u', crossorigin='anonymous')
+        link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css', integrity='sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp', crossorigin='anonymous')
+        // Font Awesome CSS CDN
+        link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css')
+        link(href='css/navbar-fixed-top.css', rel='stylesheet')
+        link(rel='stylesheet', href='fonts/icomoon/style.css')
+        link(rel='stylesheet', href='css/jquery-ui.css')
+        link(rel='stylesheet', href='css/owl.carousel.min.css')
+        link(rel='stylesheet', href='css/owl.theme.default.min.css')
+        link(rel='stylesheet', href='css/owl.theme.default.min.css')
+        link(rel='stylesheet', href='css/bootstrap-datepicker.css')
+        link(rel='stylesheet', href='fonts/flaticon/font/flaticon.css')
+        link(rel='stylesheet', href='css/aos.css')
+        link(rel='stylesheet', href='css/style.css')
+        link(rel='stylesheet', type='text/css', href='css/util.css')
+        link(rel='stylesheet', type='text/css', href='css/main.css')
+        script(type='text/javascript', src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js')
+        script(type='text/javascript', src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+    body
+        nav.navbar.navbar-default.navbar-fixed-top
+            .container
+                .navbar-header
+                    button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
+                        span.sr-only Toggle navigation
+                        span.icon-bar
+                        span.icon-bar
+                        span.icon-bar
+                    // <img style="width:5%; length:10%" src="assets/images/its.png" alt="">
+                    a.navbar-brand(href='dashboard')
+                        // ?php echo $web-
+                        | Sistem Kehadiran Online
+                #navbar.navbar-collapse.collapse
+                    ul.nav.navbar-nav.navbar-right
+                        li
+                            a(href='dashboard_new') Dashboard
+                        li
+                            a(href='rekap') Rekap
+                        li
+                            a(href='data') Data
+                        li
+                            a(href='tambah_mahasiswa') Tambah Mahasiswa
+                        li
+                            a(href='tambah_matakuliah') Tambah Mata Kuliah
+                        li
+                            a(href='tambah_pertemuan') Tambah Pertemuan
+                        li
+                            a(href='tambah_user_matkul') Tambah Peserta
+                        li
+                            a(href='logout') Logout
+        .container
+            .row
+                .btn-group.float-right(style='float:right;')
+                    ol.breadcrumb.hide-phone.p-0.m-0
+                        li.breadcrumb-item Selamat Datang,
+                        li.breadcrumb-item.active Nama User
+            #features-section.site-section.bg-light
+                .container
+                    .row.mb-5
+                        .col-12.text-center
+                            h2.section-title.mb-3 Tambah Mahasiswa
+                            //- p #{test}
+                            //- each item in test
+                            //-     p= item.nama
+                        br
+                form(action="http://localhost:3000/api/user/tambahmahasiswa" method="POST") 
+                    .form-group
+                        input.form-control.form-control-lg(type='text', name='nama', placeholder='Nama')
+                    .form-group
+                        input.form-control.form-control-lg(type='text', name='nrp', placeholder='NRP / NIP')
+                    .form-group
+                        input.form-control.form-control-lg(type='password', name='password', placeholder='Password')
+                    input.btn.btn-success.btn-lg.btn-block(type='submit', value='Submit')
+
+                                         
+
+            hr
+            .footer
+                p
+                    strong Sistem Kehadiran ITS
+                    | ©
+                    | 2019
+                                  
+
+    script.
+            (function($,d){$.each(readyQ,function(i,f){$(f)});$.each(bindReadyQ,function(i,f){$(d).bind("ready",f)})})(jQuery,document)
+               
+        // view Modal
