@@ -1814,6 +1814,26 @@ h1, h2, h3, h4, h5,
   color: #000;
   font-size: 30px; }
 
+.modal-header.primary {
+  color: #fff;
+  background-color: #337ab7;
+  border-color: #337ab7;
+  
+}
+
+.modal-body.primary {
+  color: #fff;
+  background-color: #337ab7;
+  border-color: #337ab7;
+  
+}
+
+.peserta-div {
+  width: 14%;
+  word-wrap: wrap;
+  word-break: break-all
+}
+
 @media (max-width: 991.98px) {
   .site-logo {
     top: 0; } }
@@ -1821,3 +1841,5 @@ h1, h2, h3, h4, h5,
 @media (max-width: 991.98px) {
   .main-menu {
     display: none !important; } }
+
+
