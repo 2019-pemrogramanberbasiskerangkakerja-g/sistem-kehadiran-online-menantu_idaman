@@ -76,10 +76,37 @@ router.get('/data', forwardAuthenticated, (req, res) =>
 
 );
 
-router.get('/tambah', forwardAuthenticated, (req, res) =>
-  res.render('tambah', {
+router.get('/tambah_mahasiswa', forwardAuthenticated, (req, res) =>
+  res.render('tambah_mahasiswa', {
     // userData: req.user
-    title: 'tambah'
+    title: 'Tambah Mahasiswa'
+    
+  })
+
+);
+
+router.get('/tambah_matakuliah', forwardAuthenticated, (req, res) =>
+  res.render('tambah_matakuliah', {
+    // userData: req.user
+    title: 'Tambah Mata Kuliah'
+    
+  })
+
+);
+
+router.get('/tambah_pertemuan', forwardAuthenticated, (req, res) =>
+  res.render('tambah_pertemuan', {
+    // userData: req.user
+    title: 'Tambah Pertemuan'
+    
+  })
+
+);
+
+router.get('/tambah_user_matkul', forwardAuthenticated, (req, res) =>
+  res.render('tambah_user_matkul', {
+    // userData: req.user
+    title: 'Tambah Peserta'
     
   })
 
