@@ -9,18 +9,18 @@ html(lang='en')
         link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css', integrity='sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp', crossorigin='anonymous')
         // Font Awesome CSS CDN
         link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css')
-        link(href='/css/navbar-fixed-top.css', rel='stylesheet')
-        link(rel='stylesheet', href='/fonts/icomoon/style.css')
-        link(rel='stylesheet', href='/css/jquery-ui.css')
-        link(rel='stylesheet', href='/css/owl.carousel.min.css')
-        link(rel='stylesheet', href='/css/owl.theme.default.min.css')
-        link(rel='stylesheet', href='/css/owl.theme.default.min.css')
-        link(rel='stylesheet', href='/css/bootstrap-datepicker.css')
-        link(rel='stylesheet', href='/fonts/flaticon/font/flaticon.css')
-        link(rel='stylesheet', href='/css/aos.css')
-        link(rel='stylesheet', href='/css/style.css')
-        link(rel='stylesheet', type='text/css', href='/css/util.css')
-        link(rel='stylesheet', type='text/css', href='/css/main.css')
+        link(href='css/navbar-fixed-top.css', rel='stylesheet')
+        link(rel='stylesheet', href='fonts/icomoon/style.css')
+        link(rel='stylesheet', href='css/jquery-ui.css')
+        link(rel='stylesheet', href='css/owl.carousel.min.css')
+        link(rel='stylesheet', href='css/owl.theme.default.min.css')
+        link(rel='stylesheet', href='css/owl.theme.default.min.css')
+        link(rel='stylesheet', href='css/bootstrap-datepicker.css')
+        link(rel='stylesheet', href='fonts/flaticon/font/flaticon.css')
+        link(rel='stylesheet', href='css/aos.css')
+        link(rel='stylesheet', href='css/style.css')
+        link(rel='stylesheet', type='text/css', href='css/util.css')
+        link(rel='stylesheet', type='text/css', href='css/main.css')
         script(type='text/javascript', src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js')
         script(type='text/javascript', src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
     body
@@ -45,7 +45,7 @@ html(lang='en')
                         li
                             a(href='data') Data
                         li
-                            a(href='data') Tambah
+                            a(href='tambah') Tambah
                         li
                             a(href='logout') Logout
         .container
@@ -58,7 +58,7 @@ html(lang='en')
                 .container
                     .row.mb-5
                         .col-12.text-center
-                            h2.section-title.mb-3 Tabel Kehadiran
+                            h2.section-title.mb-3 Tabel Rekapitulasi
                             //- p #{test}
                             //- each item in test
                             //-     p= item.nama
@@ -72,17 +72,18 @@ html(lang='en')
                                         th.cell100.column1 Nama Mata Kuliah
                                         th.cell100.column2 Kelas
                                         th.cell100.column3 ID Mata Kuliah
-                                        th.cell100.column4 Keterangan
+                                        th.cell100.column4 Peserta
+                                        th.cell100.column5 Keterangan
                         .table100-body.js-pscroll
                             table
                                 tbody
-                                    each item in arrayClass
+                                   
                                         tr.row100.body
-                                            td.cell100.column1 #{item.nama}
-                                            td.cell100.column2 #{item.kelas}
-                                            td.cell100.column3 #{item.id_matkul}
-                                            td.cell100.column4
-                                                a(href="absen" class="btn btn-default") Absen
+                                            td.cell100.column1
+                                            td.cell100.column2 
+                                            td.cell100.column3
+                                            td.cell100.column4 
+                                            td.cell100.column5
                                          
 
             hr
