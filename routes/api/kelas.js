@@ -5,6 +5,7 @@ const router = express.Router();
 const Sequelize = require('sequelize');
 require('../../config/passport')(passport);
 const MataKuliah = require('../../models').MataKuliah;
+const Absensi = require('../../models').Absensi;
 
 router.get('/:nrp', function(req, res) {
     MataKuliah
@@ -14,6 +15,11 @@ router.get('/:nrp', function(req, res) {
             [Sequelize.Op.overlap]: [req.params.nrp]
           },
         },
+        include: [
+            {
+                model: Absensi
+            }
+        ]
       })
       .then((data) => res.status(200).send(data))
       .catch((error) => {
