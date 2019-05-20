@@ -16,17 +16,17 @@ router.get('/login', forwardAuthenticated, function(req, res, next) {
   res.render('login_new', { title: 'Login' });
 });
 
-router.get('/dashboard_new/:nrp', forwardAuthenticated, (req, res) =>{
-  var nrp = req.params.nrp;
-  request.get('http://localhost:3000/api/kelas/' + nrp,
-  function(error, response, body){
-  // console.log(JSON.parse(body));
-  const arrayAllClass = JSON.parse(body);
+// router.get('/dashboard_new/:nrp', forwardAuthenticated, (req, res) =>{
+//   var nrp = req.params.nrp;
+//   request.get('http://localhost:3000/api/kelas/' + nrp,
+//   function(error, response, body){
+//   // console.log(JSON.parse(body));
+//   const arrayAllClass = JSON.parse(body);
 
-  res.render('dashboard_new', {arrayClass:arrayAllClass})
-  })
-}
-);
+//   res.render('dashboard_new', {arrayClass:arrayAllClass})
+//   })
+// }
+// );
 
 router.get('/dashboard_new', forwardAuthenticated, (req, res) =>
 
@@ -64,16 +64,30 @@ router.get('/rekap', forwardAuthenticated, (req, res) =>
 
 );
 
-router.get('/data', forwardAuthenticated, (req, res) =>
-  request.get('http://localhost:3000/api/matakuliah/all',
+router.get('/rekap_semester', forwardAuthenticated, (req, res) =>
+  request.get('http://localhost:3000/api/rekap/IF4605',
   function(error, response, body){
     // console.log(JSON.parse(body));
     const array1 = JSON.parse(body);
 
-    res.render('data', {test:array1})
+    res.render('rekap_semester', {test:array1})
 
   })
 
+);
+
+router.get('/rekap_semester/:id_matkul', forwardAuthenticated, (req, res) => {
+  var id_matkul = req.params.id_matkul;
+  request.get('http://localhost:3000/api/rekap/' + id_matkul,
+  function(error, response, body){
+    // console.log(JSON.parse(body));
+  const arrayAllRekap = JSON.parse(body);
+  
+  res.render('data', {test:arrayAllRekap})
+  // console.log(test);
+
+  })
+}
 );
 
 router.get('/tambah_mahasiswa', forwardAuthenticated, (req, res) =>
