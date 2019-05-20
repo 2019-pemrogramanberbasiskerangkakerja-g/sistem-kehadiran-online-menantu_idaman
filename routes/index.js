@@ -162,13 +162,33 @@ router.get('/tambah_matakuliah', forwardAuthenticated, (req, res) =>
 );
 
 router.get('/tambah_pertemuan', forwardAuthenticated, (req, res) =>
+
   res.render('tambah_pertemuan', {
     // userData: req.user
     title: 'Tambah Pertemuan'
-    
   })
-
 );
+
+router.post('/tambah_pertemuan', forwardAuthenticated, (req, res) => {
+  mulai = req.body.mulai;
+  selesai = req.body.selesai;
+
+  tahunMulai = mulai.substring(0,4);
+  bulanMulai = mulai.substring(5,7);
+  tanggalMulai = mulai.substring(8,10)
+  jamMulai = mulai.substring(11,13);
+  menitMulai = mulai.substring(14,16);
+
+  tahunSelesai = selesai.substring(0,4);
+  bulanSelesai = selesai.substring(5,7);
+  tanggalSelesai = selesai.substring(8,10)
+  jamSelesai = selesai.substring(11,13);
+  menitSelesai = selesai.substring(14,16);
+
+  formattedMulai = tahunMulai + '-' + bulanMulai + '-' + tanggalMulai + jamMulai + ':' + menitMulai + ':' + '00';
+  formattedSelesai = tahunSelesai + '-' + bulanSelesai + '-' + tanggalSelesai + jamSelesai + ':' + menitSelesai + ':' + '00';
+  
+});
 
 router.post('/tambah_user_matkul', forwardAuthenticated, (req, res) =>{
   var ruang = req.body.ruang;
