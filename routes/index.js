@@ -55,7 +55,7 @@ router.get('/dashboard_new', forwardAuthenticated, (req, res) =>
 );
 // console.log(req.user);
 
-router.get('/rekap', forwardAuthenticated, (req, res) =>
+router.get(newFunction(), forwardAuthenticated, (req, res) =>
   res.render('rekap', {
     // userData: req.user
     title: 'Rekap'
@@ -64,31 +64,84 @@ router.get('/rekap', forwardAuthenticated, (req, res) =>
 
 );
 
-router.get('/rekap_semester', forwardAuthenticated, (req, res) =>
-  request.get('http://localhost:3000/api/rekap/IF4605',
+router.get('/rekap_semester/:id_matkul/semester/:semester', forwardAuthenticated, (req, res) =>{
+  var id_matkul = req.params.id_matkul;
+  var semester = req.params.semester;
+  request.get('http://pugna.serveo.net/api/rekap/' + id_matkul + '/semester/' + semester,
   function(error, response, body){
-    // console.log(JSON.parse(body));
+    console.log(JSON.parse(body));
     const array1 = JSON.parse(body);
 
     res.render('rekap_semester', {test:array1})
 
   })
-
+}
 );
 
-router.get('/rekap_semester/:id_matkul', forwardAuthenticated, (req, res) => {
+router.get('/rekap_pertemuan/:id_matkul/pertemuan/:pertemuan', forwardAuthenticated, (req, res) =>{
   var id_matkul = req.params.id_matkul;
-  request.get('http://localhost:3000/api/rekap/' + id_matkul,
+  var pertemuan = req.params.pertemuan;
+  request.get('http://pugna.serveo.net/api/rekap/' + id_matkul + '/pertemuan/' + pertemuan,
   function(error, response, body){
-    // console.log(JSON.parse(body));
-  const arrayAllRekap = JSON.parse(body);
-  
-  res.render('data', {test:arrayAllRekap})
-  // console.log(test);
+    console.log(JSON.parse(body));
+    const array1 = JSON.parse(body);
+
+    res.render('rekap_pertemuan', {test:array1})
 
   })
 }
 );
+
+router.get('/rekap_mhs_semester/:nrp/semester/:semester', forwardAuthenticated, (req, res) =>{
+  var nrp = req.params.nrp;
+  var semester = req.params.semester;
+  request.get('http://pugna.serveo.net/api/rekapmahasiswa/' + nrp + '/semester/' + semester,
+  function(error, response, body){
+    console.log(JSON.parse(body));
+    const array1 = JSON.parse(body);
+
+    res.render('rekap_mhs_semester', {test:array1})
+
+  })
+}
+);
+
+router.get('/rekap_mhs_matkul/:nrp/matkul/:id_matkul', forwardAuthenticated, (req, res) =>{
+  var nrp = req.params.nrp;
+  var id_matkul = req.params.id_matkul;
+  request.get('http://pugna.serveo.net/api/rekapmahasiswa/' + nrp + '/matkul/' + id_matkul,
+  function(error, response, body){
+    console.log(JSON.parse(body));
+    const array1 = JSON.parse(body);
+
+    res.render('rekap_mhs_matkul', {test:array1})
+
+  })
+}
+);
+
+// router.get('/rekap_semester', forwardAuthenticated, (req, res) =>
+//   res.render('rekap_semester', {
+//     // userData: req.user
+//     title: 'Rekap Semester'
+    
+//   })
+
+// );
+
+// router.get('/rekap_semester/:id_matkul', forwardAuthenticated, (req, res) => {
+//   var id_matkul = req.params.id_matkul;
+//   request.get('http://localhost:3000/api/rekap/' + id_matkul,
+//   function(error, response, body){
+//     // console.log(JSON.parse(body));
+//   const arrayAllRekap = JSON.parse(body);
+  
+//   res.render('data', {test:arrayAllRekap})
+//   // console.log(test);
+
+//   })
+// }
+// );
 
 router.get('/tambah_mahasiswa', forwardAuthenticated, (req, res) =>
   res.render('tambah_mahasiswa', {
@@ -117,10 +170,21 @@ router.get('/tambah_pertemuan', forwardAuthenticated, (req, res) =>
 
 );
 
+router.post('/tambah_user_matkul', forwardAuthenticated, (req, res) =>{
+  var ruang = req.body.ruang;
+  var nrp = req.body.nrp;
+  request.post('http://pugna.serveo.net/api/absen/' + ruang + '/' + nrp,
+  function(error, response, body){
+    
+    // res.redirect('/tambah_user_matkul');
+  })
+}
+);
+
 router.get('/tambah_user_matkul', forwardAuthenticated, (req, res) =>
   res.render('tambah_user_matkul', {
     // userData: req.user
-    title: 'Tambah Peserta'
+    title: 'Tambah User Matkul'
     
   })
 
@@ -135,3 +199,7 @@ router.get('/logout', (req, res) => {
 router.get('/seed', seeder_controller.seed);   
 
 module.exports = router;
+function newFunction() {
+  return '/rekap';
+}
+

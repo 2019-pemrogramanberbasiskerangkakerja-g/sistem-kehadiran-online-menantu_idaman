@@ -9,18 +9,18 @@ html(lang='en')
         link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css', integrity='sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp', crossorigin='anonymous')
         // Font Awesome CSS CDN
         link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css')
-        link(href='css/navbar-fixed-top.css', rel='stylesheet')
-        link(rel='stylesheet', href='fonts/icomoon/style.css')
-        link(rel='stylesheet', href='css/jquery-ui.css')
-        link(rel='stylesheet', href='css/owl.carousel.min.css')
-        link(rel='stylesheet', href='css/owl.theme.default.min.css')
-        link(rel='stylesheet', href='css/owl.theme.default.min.css')
-        link(rel='stylesheet', href='css/bootstrap-datepicker.css')
-        link(rel='stylesheet', href='fonts/flaticon/font/flaticon.css')
-        link(rel='stylesheet', href='css/aos.css')
-        link(rel='stylesheet', href='css/style.css')
-        link(rel='stylesheet', type='text/css', href='css/util.css')
-        link(rel='stylesheet', type='text/css', href='css/main.css')
+        link(href='/css/navbar-fixed-top.css', rel='stylesheet')
+        link(rel='stylesheet', href='/fonts/icomoon/style.css')
+        link(rel='stylesheet', href='/css/jquery-ui.css')
+        link(rel='stylesheet', href='/css/owl.carousel.min.css')
+        link(rel='stylesheet', href='/css/owl.theme.default.min.css')
+        link(rel='stylesheet', href='/css/owl.theme.default.min.css')
+        link(rel='stylesheet', href='/css/bootstrap-datepicker.css')
+        link(rel='stylesheet', href='/fonts/flaticon/font/flaticon.css')
+        link(rel='stylesheet', href='/css/aos.css')
+        link(rel='stylesheet', href='/css/style.css')
+        link(rel='stylesheet', type='text/css', href='/css/util.css')
+        link(rel='stylesheet', type='text/css', href='/css/main.css')
         script(type='text/javascript', src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js')
         script(type='text/javascript', src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
     body
@@ -45,13 +45,19 @@ html(lang='en')
                         li
                             a(href='rekap_semester') Rekap Semester
                         li
+                            a(href='rekap_pertemuan') Rekap Semester Pertemuan
+                        li
+                            a(href='rekap_mhs_semester') Rekap Mahasiswa Semester
+                        li
+                            a(href='rekap_mhs_matkul') Rekap Mahasiswa MataKuliah
+                        li
                             a(href='tambah_mahasiswa') Tambah Mahasiswa
                         li
                             a(href='tambah_matakuliah') Tambah Mata Kuliah
                         li
                             a(href='tambah_pertemuan') Tambah Pertemuan
                         li
-                            a(href='tambah_user_matkul') Tambah Peserta
+                            a(href='tambah_user_matkul') Absen
                         li
                             a(href='logout') Logout
         .container
@@ -71,13 +77,20 @@ html(lang='en')
                         br
                 form(action="http://localhost:3000/api/absen/tambahjadwal" method="POST") 
                     .form-group
-                        input.form-control.form-control-lg(type='text', name='id_matkul', placeholder='ID Mata Kuliah')
-                    .form-group
-                        input.form-control.form-control-lg(type='text', name='kelas', placeholder='Kelas')
-                    .form-group
-                        input.form-control.form-control-lg(type='text', name='pertemuan', placeholder='Pertemuan ke-')
+                        input.form-control.form-control-lg(type='number', name='pertemuan', placeholder='Pertemuan ke-')
                     .form-group
                         input.form-control.form-control-lg(type='text', name='ruang', placeholder='Ruang')
+                    .form-group
+                        //- input.form-control.form-control-lg(type="text" name="input" placeholder="YYYY-MM-DDHH:MM:SS" required 
+                        //- pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))" 
+                        //- title="Enter a date in this format YYYY-MM-DDHH:MM:SS")
+                        input.form-control.form-control-lg(type='datetime-local', name='mulai', placeholder='Waktu Mulai')
+                    .form-group
+                        input.form-control.form-control-lg(type='datetime-local', name='selesai', placeholder='Waktu Selesai')
+                    .form-group
+                        input.form-control.form-control-lg(type='number', name='semester', placeholder='Semester')
+                    .form-group
+                        input.form-control.form-control-lg(type='text', name='tahun', placeholder='Tahun')
                     input.btn.btn-success.btn-lg.btn-block(type='submit', value='Submit')
 
                                          

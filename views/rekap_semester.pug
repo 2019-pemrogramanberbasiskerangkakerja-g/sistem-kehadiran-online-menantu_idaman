@@ -45,13 +45,19 @@ html(lang='en')
                         li
                             a(href='rekap_semester') Rekap Semester
                         li
+                            a(href='rekap_pertemuan') Rekap Semester Pertemuan
+                        li
+                            a(href='rekap_mhs_semester') Rekap Mahasiswa Semester
+                        li
+                            a(href='rekap_mhs_matkul') Rekap Mahasiswa MataKuliah
+                        li
                             a(href='tambah_mahasiswa') Tambah Mahasiswa
                         li
                             a(href='tambah_matakuliah') Tambah Mata Kuliah
                         li
                             a(href='tambah_pertemuan') Tambah Pertemuan
                         li
-                            a(href='tambah_user_matkul') Tambah Peserta
+                            a(href='tambah_user_matkul') Absen
                         li
                             a(href='logout') Logout
         .container
@@ -64,7 +70,7 @@ html(lang='en')
                 .container
                     .row.mb-5
                         .col-12.text-center
-                            h2.section-title.mb-3 Rekap Kuliah per Semester
+                            h2.section-title.mb-3 Rekap Kuliah #{test[0].id_matkul} Semester #{test[0].semester}
                             //- p #{test}
                             //- each item in test
                             //-     p= item.nama
@@ -75,21 +81,21 @@ html(lang='en')
                             table
                                 thead
                                     tr.row100.head
-                                        th.cell100.column1 Nama Mata Kuliah
-                                        th.cell100.column2 Kelas
-                                        th.cell100.column3 ID Mata Kuliah
-                                        th.cell100.column4 Peserta
-                                        th.cell100.column5 Keterangan
+                                        //- th.cell100.column1 Nama Mata Kuliah
+                                        //- th.cell100.column2 Kelas
+                                        th.cell100.column1 Pertemuan
+                                        th.cell100.column2 Peserta
+                                        //- th.cell100.column5 Keterangan
                         .table100-body.js-pscroll
                             table
                                 tbody
                                     each item in test 
                                         tr.row100.body
-                                            td.cell100.column1 #{item.nama}
-                                            td.cell100.column2 #{item.kelas}
-                                            td.cell100.column3 #{item.id_matkul}
-                                            td.cell100.column4 
-                                                 a(data-toggle="modal" href="#normalModal" class="btn btn-default") Peserta
+                                            //- td.cell100.column1 #{item.nama}
+                                            //- td.cell100.column2 #{item.kelas}
+                                            td.cell100.column1 #{item.pertemuan}
+                                            td.cell100.column2 #{item.nrp}
+                                                //-  a(data-toggle="modal" href="#normalModal" class="btn btn-default") Peserta
                                                                                                 
                                             td.cell100.column5  
                                             
