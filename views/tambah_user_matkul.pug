@@ -37,6 +37,7 @@ html(lang='en')
                         // ?php echo $web-
                         | Sistem Kehadiran Online
                 #navbar.navbar-collapse.collapse
+                    ul.nav.navbar-nav.navbar-right
                         li
                             a(href='dashboard_new') Dashboard
                         li
@@ -68,7 +69,7 @@ html(lang='en')
                             //- each item in test
                             //-     p= item.nama
                         br
-                form(action="http://localhost:3000/api/absen/tambahjadwal" method="POST") 
+                form(action="http://localhost:3000/api/matakuliah/tambahpeserta/" method="POST") 
                     .form-group
                         input.form-control.form-control-lg(type='text', name='id_matkul', placeholder='ID Mata Kuliah')
                     .form-group
