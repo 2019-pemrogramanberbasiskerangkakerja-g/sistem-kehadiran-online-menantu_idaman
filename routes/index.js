@@ -64,6 +64,15 @@ router.get(newFunction(), forwardAuthenticated, (req, res) =>
 
 );
 
+router.get('/rekap_semester', forwardAuthenticated, (req, res) =>
+  res.render('rekap_semester', {
+    // userData: req.user
+    title: 'Rekap Semester'
+    
+  })
+
+);
+
 router.get('/rekap_semester/:id_matkul/semester/:semester', forwardAuthenticated, (req, res) =>{
   var id_matkul = req.params.id_matkul;
   var semester = req.params.semester;
@@ -76,6 +85,15 @@ router.get('/rekap_semester/:id_matkul/semester/:semester', forwardAuthenticated
 
   })
 }
+);
+
+router.get('/rekap_pertemuan', forwardAuthenticated, (req, res) =>
+  res.render('rekap_pertemuan', {
+    // userData: req.user
+    title: 'Rekap Pertemuan'
+    
+  })
+
 );
 
 router.get('/rekap_pertemuan/:id_matkul/pertemuan/:pertemuan', forwardAuthenticated, (req, res) =>{
@@ -92,6 +110,15 @@ router.get('/rekap_pertemuan/:id_matkul/pertemuan/:pertemuan', forwardAuthentica
 }
 );
 
+router.get('/rekap_mhs_semester', forwardAuthenticated, (req, res) =>
+  res.render('rekap_mhs_semester', {
+    // userData: req.user
+    title: 'Rekap Mahasiswa Semester'
+    
+  })
+
+);
+
 router.get('/rekap_mhs_semester/:nrp/semester/:semester', forwardAuthenticated, (req, res) =>{
   var nrp = req.params.nrp;
   var semester = req.params.semester;
@@ -104,6 +131,15 @@ router.get('/rekap_mhs_semester/:nrp/semester/:semester', forwardAuthenticated, 
 
   })
 }
+);
+
+router.get('/rekap_mhs_matkul', forwardAuthenticated, (req, res) =>
+  res.render('rekap_mhs_matkul', {
+    // userData: req.user
+    title: 'Rekap Mahasiswa Matkul'
+    
+  })
+
 );
 
 router.get('/rekap_mhs_matkul/:nrp/matkul/:id_matkul', forwardAuthenticated, (req, res) =>{
@@ -170,8 +206,8 @@ router.get('/tambah_pertemuan', forwardAuthenticated, (req, res) =>
 );
 
 router.post('/tambah_pertemuan', forwardAuthenticated, (req, res) => {
-  mulai = req.body.mulai;
-  selesai = req.body.selesai;
+  var mulai = req.body.mulai;
+  var selesai = req.body.selesai;
 
   tahunMulai = mulai.substring(0,4);
   bulanMulai = mulai.substring(5,7);
@@ -187,6 +223,19 @@ router.post('/tambah_pertemuan', forwardAuthenticated, (req, res) => {
 
   formattedMulai = tahunMulai + '-' + bulanMulai + '-' + tanggalMulai + jamMulai + ':' + menitMulai + ':' + '00';
   formattedSelesai = tahunSelesai + '-' + bulanSelesai + '-' + tanggalSelesai + jamSelesai + ':' + menitSelesai + ':' + '00';
+  // console.log(formattedMulai);
+  // console.log(formattedSelesai);
+
+  request.post('http://pugna.serveo.net/api/tambahjadwal',
+  function(error, response, body){
+    pertemuan = req.body.pertemuan;
+    ruang = req.body.ruang;
+    mulai = req.body.formattedMulai;
+    selesai = req.body.formattedSelesai;
+    semester = req.body.semester;
+    tahun = req.body.tahun;    
+  })
+  
   
 });
 

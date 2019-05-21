@@ -70,7 +70,10 @@ html(lang='en')
                 .container
                     .row.mb-5
                         .col-12.text-center
-                            h2.section-title.mb-3 Rekap NRP #{test[0].nrp} Mata Kuliah #{test[0].id_matkul}
+                            if test === undefined
+                                h2.section-title.mb-3 Rekap NRP Mata Kuliah 
+                            else
+                                h2.section-title.mb-3 Rekap NRP #{test[0].nrp} Mata Kuliah #{test[0].id_matkul}
                             //- p #{test}
                             //- each item in test
                             //-     p= item.nama
@@ -89,26 +92,34 @@ html(lang='en')
                         .table100-body.js-pscroll
                             table
                                 tbody
-                                    each item in test 
+                                    if test === undefined
                                         tr.row100.body
-                                            //- td.cell100.column1 #{item.nama}
-                                            //- td.cell100.column2 #{item.kelas}
-                                            //- td.cell100.column1 #{item.pertemuan}
-                                            td.cell100.column1 #{item.pertemuan}
+                                            td.cell100.column1
                                                 //-  a(data-toggle="modal" href="#normalModal" class="btn btn-default") Peserta
                                                                                                 
                                             td.cell100.column5  
-                                            
-                                                #normalModal(class="modal fade")
-                                                    div(class="modal-dialog")
-                                                        div(class="modal-content")
-                                                        div(class="modal-header primary")
-                                                            button(type="button" class="close" data-dismiss="modal" aria-hidden="true") &times;
-                                                            h4(class="modal-title") LIST PESERTA
-                                                        
-                                                        div(class="modal-body primary")
-                                                            div(class="peserta-div")
-                                                                p #{item.peserta}
+
+                                    else
+                                        each item in test 
+                                            tr.row100.body
+                                                //- td.cell100.column1 #{item.nama}
+                                                //- td.cell100.column2 #{item.kelas}
+                                                //- td.cell100.column1 #{item.pertemuan}
+                                                td.cell100.column1 #{item.pertemuan}
+                                                    //-  a(data-toggle="modal" href="#normalModal" class="btn btn-default") Peserta
+                                                                                                    
+                                                td.cell100.column5  
+                                                
+                                                    #normalModal(class="modal fade")
+                                                        div(class="modal-dialog")
+                                                            div(class="modal-content")
+                                                            div(class="modal-header primary")
+                                                                button(type="button" class="close" data-dismiss="modal" aria-hidden="true") &times;
+                                                                h4(class="modal-title") LIST PESERTA
+                                                            
+                                                            div(class="modal-body primary")
+                                                                div(class="peserta-div")
+                                                                    p #{item.peserta}
 
 
             hr
