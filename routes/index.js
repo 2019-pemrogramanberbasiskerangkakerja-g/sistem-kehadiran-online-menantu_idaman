@@ -203,11 +203,10 @@ router.post('/tambah_mahasiswa', forwardAuthenticated, (req, res) => {
     headers: {'content-type' : 'application/json'},
     url : 'http://pugna.serveo.net/api/tambahmahasiswa',
     body : JSON.stringify({jsondataObj}),
-    json : true
   },
   
   function(error, response, body){
-    console.log(error);
+    console.log(response);
     if(response.statusCode == 200){
       flagValue = 1;
     }
@@ -238,14 +237,21 @@ router.post('/tambah_matakuliah', forwardAuthenticated, (req, res) =>{
 
   var jsondataObj = {'name' : nameB, 'kelas' : kelasB, 'id_matkul' : id_matkulB}
   request.post({
-    headers: {'content-type' : 'application/x-www-form-urlencoded'},
+    headers: {'content-type' : 'application/json'},
     url : 'http://pugna.serveo.net/api/tambahmatkul',
-    body : jsondataObj,
+    body : JSON.stringify({jsondataObj}),
   },
 
   function(error, response, body){
-    //login flag tolong
-    res.render('tambah_matakuliah', {flag:flagValue})
+    if(response.statusCode == 201){
+      flagValue = 1;
+    }
+    else{
+      flagValue = 2;
+    }
+    
+  //login flag tolong
+  res.render('tambah_user_matkul', {flag:flagValue})
   
   })
 });
@@ -285,13 +291,20 @@ router.post('/tambah_pertemuan', forwardAuthenticated, (req, res) => {
   // console.log(formattedSelesai);
   var jsondataObj = {'pertemuan' : pertemuanB, 'ruang' : ruangB, 'mulai' : formattedMulai, 'selesai' : formattedSelesai, 'semester' : semesterB, 'tahun' : tahunB }
   request.post({
-    headers: {'content-type' : 'application/x-www-form-urlencoded'},
+    headers: {'content-type' : 'application/json'},
     url : 'http://pugna.serveo.net/api/tambahjadwal',
-    body : jsondataObjm
+    body : JSON.stringify({jsondataObjm})
   },
   function(error, response, body){
+    if(response.statusCode == 201){
+      flagValue = 1;
+    }
+    else{
+      flagValue = 2;
+    }
+    
   //login flag tolong
-  res.render('tambah_mahasiswa', {flag:flagValue})
+  res.render('tambah_user_matkul', {flag:flagValue})
 
   })
   
@@ -305,12 +318,19 @@ router.post('/tambah_user_matkul', forwardAuthenticated, (req, res) =>{
 
   var jsondataObj = {'ruang': ruangB, 'nrp' : nrpB}
   request.post({
-    headers: {'content-type' : 'application/x-www-form-urlencoded'},
-    url: 'http://pugna.serveo.net/api/absen/' + ruang + '/' + nrp,
-    body : jsondataObj,
+    headers: {'content-type' : 'application/json'},
+    url: 'http://pugna.serveo.net/api/absen/' + ruangB + '/' + nrpB,
+    body : JSON.stringify({jsondataObj}),
   },
 
   function(error, response, body){
+    console.log('INI: ' + response.statusCode);
+    if(response.statusCode == 201){
+      flagValue = 1;
+    }
+    else{
+      flagValue = 2;
+    }
     
   //login flag tolong
   res.render('tambah_user_matkul', {flag:flagValue})
