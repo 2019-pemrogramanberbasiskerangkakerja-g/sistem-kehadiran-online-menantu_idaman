@@ -81,13 +81,14 @@ html(lang='en')
                     .form-group
                         input.form-control.form-control-lg(type='text', name='nrp', placeholder='NRP')
                     input.btn.btn-success.btn-lg.btn-block(type='submit', value='Submit')
-
+                br
+                br
                 if flag === 1
                     div(class="alert alert-success alert-dismissible")
                         a(hef="#" class="close" data-dismiss="alert" aria-label="close") &times;
                         strong Success!
                         p This alert box could indicate a successful or positive action.
-                else if flag == 2
+                else if flag === 2
                     div(class="alert alert-danger alert-dismissible")
                         a(href="#" class="close" data-dismiss="alert" aria-label="close") &times;
                         strong Danger!
