@@ -71,11 +71,13 @@ html(lang='en')
                     .row.mb-5
                         .col-12.text-center
                             h2.section-title.mb-3 Tambah Mahasiswa
+                            p #{flag}
                             //- p #{test}
                             //- each item in test
                             //-     p= item.nama
                         br
-                form(action="http://pugna.serveo.net/api/tambahmahasiswa" method="POST") 
+                        
+                form(action="/tambah_mahasiswa" method="POST") 
                     .form-group
                         input.form-control.form-control-lg(type='text', name='name', placeholder='Nama')
                     .form-group
@@ -83,6 +85,20 @@ html(lang='en')
                     .form-group
                         input.form-control.form-control-lg(type='password', name='password', placeholder='Password')
                     input.btn.btn-success.btn-lg.btn-block(type='submit', value='Submit')
+                    br
+                    br
+                
+                if flag === 1
+                    div(class="alert alert-success alert-dismissible")
+                        a(hef="#" class="close" data-dismiss="alert" aria-label="close") &times;
+                        strong Success!
+                        p This alert box could indicate a successful or positive action.
+                else if flag == 2
+                    div(class="alert alert-danger alert-dismissible")
+                        a(href="#" class="close" data-dismiss="alert" aria-label="close") &times;
+                        strong Danger!
+                        p This alert box could indicate a dangerous or potentially negative action.
+                    
 
                                          
 
@@ -96,5 +112,7 @@ html(lang='en')
 
     script.
             (function($,d){$.each(readyQ,function(i,f){$(f)});$.each(bindReadyQ,function(i,f){$(d).bind("ready",f)})})(jQuery,document)
+
+        
                
         // view Modal

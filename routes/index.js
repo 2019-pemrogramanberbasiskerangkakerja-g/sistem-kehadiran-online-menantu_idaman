@@ -188,6 +188,30 @@ router.get('/tambah_mahasiswa', forwardAuthenticated, (req, res) =>
 
 );
 
+
+router.post('/tambah_mahasiswa', forwardAuthenticated, (req, res) => {
+  var nameB = req.body.name;
+  var nrpB = req.body.nrp;
+  var passwordB = req.body.password;
+  var flagValue = 0;
+  console.log('VALUE:'+ flagValue);
+  res.render('tambah_mahasiswa', {flag:flagValue})
+
+  var jsondataObj = {'name' : nameB, 'nrp' : nrpB, 'password': passwordB};
+  request.post({
+    headers: {'content-type' : 'application/x-www-form-urlencoded'},
+    url : 'http://pugna.serveo.net/api/tambahmahasiswa',
+    body : jsondataObj,
+  },
+  
+  function(error, response, body){
+  //login flag tolong
+  res.render('tambah_mahasiswa', {flag:flagValue})
+
+  })
+
+});
+
 router.get('/tambah_matakuliah', forwardAuthenticated, (req, res) =>
   res.render('tambah_matakuliah', {
     // userData: req.user
@@ -196,6 +220,26 @@ router.get('/tambah_matakuliah', forwardAuthenticated, (req, res) =>
   })
 
 );
+
+router.post('/tambah_matakuliah', forwardAuthenticated, (req, res) =>{
+  var nameB = req.body.name;
+  var kelasB = req.body.kelas;
+  var id_matkulB = req.body.id_matkul;
+  var flagValue = 0;
+
+  var jsondataObj = {'name' : nameB, 'kelas' : kelasB, 'id_matkul' : id_matkulB}
+  request.post({
+    headers: {'content-type' : 'application/x-www-form-urlencoded'},
+    url : 'http://pugna.serveo.net/api/tambahmatkul',
+    body : jsondataObj,
+  },
+
+  function(error, response, body){
+    //login flag tolong
+    res.render('tambah_matakuliah', {flag:flagValue})
+  
+  })
+});
 
 router.get('/tambah_pertemuan', forwardAuthenticated, (req, res) =>
 
@@ -208,6 +252,11 @@ router.get('/tambah_pertemuan', forwardAuthenticated, (req, res) =>
 router.post('/tambah_pertemuan', forwardAuthenticated, (req, res) => {
   var mulai = req.body.mulai;
   var selesai = req.body.selesai;
+  var pertemuanB = req.body.pertemuan;
+  var ruangB = req.body.ruang;
+  var semesterB = req.body.semester;
+  var tahunB = req.body.tahun;
+  var flagValue = 0;
 
   tahunMulai = mulai.substring(0,4);
   bulanMulai = mulai.substring(5,7);
@@ -225,27 +274,37 @@ router.post('/tambah_pertemuan', forwardAuthenticated, (req, res) => {
   formattedSelesai = tahunSelesai + '-' + bulanSelesai + '-' + tanggalSelesai + jamSelesai + ':' + menitSelesai + ':' + '00';
   // console.log(formattedMulai);
   // console.log(formattedSelesai);
-
-  request.post('http://pugna.serveo.net/api/tambahjadwal',
+  var jsondataObj = {'pertemuan' : pertemuanB, 'ruang' : ruangB, 'mulai' : formattedMulai, 'selesai' : formattedSelesai, 'semester' : semesterB, 'tahun' : tahunB }
+  request.post({
+    headers: {'content-type' : 'application/x-www-form-urlencoded'},
+    url : 'http://pugna.serveo.net/api/tambahjadwal',
+    body : jsondataObjm
+  },
   function(error, response, body){
-    pertemuan = req.body.pertemuan;
-    ruang = req.body.ruang;
-    mulai = req.body.formattedMulai;
-    selesai = req.body.formattedSelesai;
-    semester = req.body.semester;
-    tahun = req.body.tahun;    
+  //login flag tolong
+  res.render('tambah_mahasiswa', {flag:flagValue})
+
   })
   
   
 });
 
 router.post('/tambah_user_matkul', forwardAuthenticated, (req, res) =>{
-  var ruang = req.body.ruang;
-  var nrp = req.body.nrp;
-  request.post('http://pugna.serveo.net/api/absen/' + ruang + '/' + nrp,
+  var ruangB = req.body.ruang;
+  var nrpB = req.body.nrp;
+  var flagValue = 0;
+
+  var jsondataObj = {'ruang': ruangB, 'nrp' : nrpB}
+  request.post({
+    headers: {'content-type' : 'application/x-www-form-urlencoded'},
+    url: 'http://pugna.serveo.net/api/absen/' + ruang + '/' + nrp,
+    body : jsondataObj,
+  },
+
   function(error, response, body){
     
-    // res.redirect('/tambah_user_matkul');
+  //login flag tolong
+  res.render('tambah_user_matkul', {flag:flagValue})
   })
 }
 );

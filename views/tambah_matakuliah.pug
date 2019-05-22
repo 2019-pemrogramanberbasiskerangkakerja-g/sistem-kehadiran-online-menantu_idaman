@@ -75,7 +75,7 @@ html(lang='en')
                             //- each item in test
                             //-     p= item.nama
                         br
-                form(action="http://pugna.serveo.net/api/tambahmatkul" method="POST") 
+                form(action="/tambah_matakuliah" method="POST") 
                     .form-group
                         input.form-control.form-control-lg(type='text', name='name', placeholder='Nama Mata Kuliah')
                     .form-group
@@ -84,7 +84,17 @@ html(lang='en')
                         input.form-control.form-control-lg(type='text', name='id_matkul', placeholder='ID Matkul')
                     input.btn.btn-success.btn-lg.btn-block(type='submit', value='Submit')
 
-                                         
+                if flag === 1
+                    div(class="alert alert-success alert-dismissible")
+                        a(hef="#" class="close" data-dismiss="alert" aria-label="close") &times;
+                        strong Success!
+                        p This alert box could indicate a successful or positive action.
+                else if flag == 2
+                    div(class="alert alert-danger alert-dismissible")
+                        a(href="#" class="close" data-dismiss="alert" aria-label="close") &times;
+                        strong Danger!
+                        p This alert box could indicate a dangerous or potentially negative action.
+                  
 
             hr
             .footer
