@@ -194,17 +194,26 @@ router.post('/tambah_mahasiswa', forwardAuthenticated, (req, res) => {
   var nrpB = req.body.nrp;
   var passwordB = req.body.password;
   var flagValue = 0;
-  console.log('VALUE:'+ flagValue);
+  // console.log('VALUE:'+ flagValue);
   res.render('tambah_mahasiswa', {flag:flagValue})
 
   var jsondataObj = {'name' : nameB, 'nrp' : nrpB, 'password': passwordB};
+  console.log(jsondataObj);
   request.post({
-    headers: {'content-type' : 'application/x-www-form-urlencoded'},
+    headers: {'content-type' : 'application/json'},
     url : 'http://pugna.serveo.net/api/tambahmahasiswa',
-    body : jsondataObj,
+    body : JSON.stringify({jsondataObj}),
+    json : true
   },
   
   function(error, response, body){
+    console.log(error);
+    if(response.statusCode == 200){
+      flagValue = 1;
+    }
+    else{
+      flagValue = 2;
+    }
   //login flag tolong
   res.render('tambah_mahasiswa', {flag:flagValue})
 
