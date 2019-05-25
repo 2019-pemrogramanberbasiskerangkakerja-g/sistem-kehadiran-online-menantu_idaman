@@ -41,25 +41,25 @@ html(lang='en')
                         li
                             a(href='dashboard_new') Dashboard
                         li
-                            a(href='rekap') Rekap
+                            a(href='/rekap') Rekap
                         li
-                            a(href='rekap_semester') Rekap Semester
+                            a(href='/rekap_semester') Rekap Semester
                         li
-                            a(href='rekap_pertemuan') Rekap Semester Pertemuan
+                            a(href='/rekap_pertemuan') Rekap Semester Pertemuan
                         li
-                            a(href='rekap_mhs_semester') Rekap Mahasiswa Semester
+                            a(href='/rekap_mhs_semester') Rekap Mahasiswa Semester
                         li
-                            a(href='rekap_mhs_matkul') Rekap Mahasiswa MataKuliah
+                            a(href='/rekap_mhs_matkul') Rekap Mahasiswa MataKuliah
                         li
-                            a(href='tambah_mahasiswa') Tambah Mahasiswa
+                            a(href='/tambah_mahasiswa') Tambah Mahasiswa
                         li
-                            a(href='tambah_matakuliah') Tambah Mata Kuliah
+                            a(href='/tambah_matakuliah') Tambah Mata Kuliah
                         li
-                            a(href='tambah_pertemuan') Tambah Pertemuan
+                            a(href='/tambah_pertemuan') Tambah Pertemuan
                         li
-                            a(href='tambah_user_matkul') Absen
+                            a(href='/tambah_user_matkul') Absen
                         li
-                            a(href='logout') Logout
+                            a(href='/logout') Logout
         .container
             .row
                 .btn-group.float-right(style='float:right;')
@@ -72,6 +72,7 @@ html(lang='en')
                         .col-12.text-center
                             if test === undefined
                                 h2.section-title.mb-3 Rekap NRP Semester 
+                                a(href='/rekap_mhs_semester/5115100064/semester/8') NRP 5115100064 Semester 8
                             else
                                 h2.section-title.mb-3 Rekap NRP #{test[0].nrp} Semester #{test[0].semester}
                             //- p #{test}
