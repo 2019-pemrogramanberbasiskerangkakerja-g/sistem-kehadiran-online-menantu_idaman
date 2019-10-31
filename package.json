@@ -24,6 +24,6 @@
     "pg-hstore": "^2.3.2",
     "pug": "2.0.0-beta11",
     "request": "^2.88.0",
-    "sequelize": "^5.7.4"
+    "sequelize": "^5.15.1"
   }
 }
